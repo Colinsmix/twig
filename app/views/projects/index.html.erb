@@ -2,27 +2,31 @@
 
 <a href='/projects/new'>New</a>
 
-<table>
-  <thead>
-    <tr>
-      <th>name</th>
-      <th>created at</th>
-      <th>description</th>
-      <th>status</th>
-      <th>organizer</th>
-      <th>link</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.name %></td>
-        <td><%= project.created_at %></td>
-        <td><%= project.description %></td>
-        <td><%= project.status %></td>
-        <td><%= project.organizer %></td>
-        <td><%= link_to 'github', project.link %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class='row'>
+  <div class="small-12 columns">
+    <table>
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>created at</th>
+          <th>description</th>
+          <th>status</th>
+          <th>organizer</th>
+          <th>link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @projects.each do |project| %>
+          <tr>
+            <td><%= project.name %></td>
+            <td><%= project.created_at.strftime("%m/%d/%y") %></td>
+            <td><%= project.description %></td>
+            <td><%= project.status %></td>
+            <td><%= project.organizer %></td>
+            <td><%= project.link %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

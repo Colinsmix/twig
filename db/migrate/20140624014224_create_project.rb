@@ -5,7 +5,7 @@ class CreateProject < ActiveRecord::Migration
       t.text :description, null: false
       t.string :status, null: false
       t.string :organizer, null: false
-      t.string :link, null: false
+      t.string :link
 
       t.timestamps
     end

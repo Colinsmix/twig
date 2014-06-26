@@ -12,16 +12,29 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'simple_form'
+gem 'devise', '~>3.2.2'
+gem 'compass-rails'
+gem 'foundation-rails'
 
 group :development do
   gem 'spring'
 end
 
-group :test do
-  gem 'shoulda-matchers'
-end
-
-group :development, :test do
+group :test, :development do
+  gem 'dotenv'
   gem 'pry-rails'
+  gem 'capybara'
+  gem 'valid_attribute'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
+  gem 'launchy'
 end
 
+# Use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.1.2'
+
+# Use unicorn as the app server
+# gem 'unicorn'
+
+# Use Capistrano for deployment
+# gem 'capistrano', group: :development

@@ -10,6 +10,33 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+
+ *= require_tree .
  */
+
+#top-left {
+  margin-left: -200px;
+  margin-top: 15px;
+}
+
+.shipit_url {
+  font-size: 18px;
+}
+
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -155px;
+}
+
+.footer, .push {
+  height: 90px;
+}
+>>>>>>> a043f48bb69bb3aa2580a2f394a1e88b304a37d6

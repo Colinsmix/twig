@@ -1,14 +1,62 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>NewBranches</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <% provide(:title, 'NewBranches') %>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<%= yield %>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
 
-</body>
-</html>
+  <body>
+    <div class='wrapper'>
+      <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name">
+            <h1><%= link_to 'Twigs', root_path %></h1>
+          </li>
+        </ul>
+        <section class="top-bar-section">
+          <ul class="right">
+            <% if user_signed_in? %>
+              <li class="has-dropdown">
+                <%= link_to 'Profile', edit_user_registration_path %>
+                <ul class="dropdown">
+                  <li>
+                    <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+                  </li>
+                </ul>
+              </li>
+            <% else %>
+              <li class="has-dropdown">
+                <%= link_to "Sign In", new_user_session_path %>
+                <ul class="dropdown">
+                  <li>
+                    <%= link_to "Sign Up", new_user_registration_path %>
+                  </li>
+                </ul>
+              </li>
+            <% end %>
+          </ul>
+        </section>
+      </nav>
+
+      <% flash.each do |name, msg| %>
+        <%= msg %>
+      <% end %>
+
+      <div class="row">
+        <div class="small-10 small-centered columns columns">
+          <%= yield %>
+        </div>
+      </div>
+    </div><!--wrapper ends--!>
+    <div class='push'></div>
+
+    <div class='footer'>
+      Created By <a href='https://github.com/jmoon90'>John Moon</a>
+    </div>
+  </body>
+      <%= javascript_include_tag "application" %>
+  </html>
