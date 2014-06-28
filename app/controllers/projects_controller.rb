@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  before_filter :authenticate_user, only: [:new]
+
   def index
     @projects = Project.all
   end
@@ -32,6 +34,12 @@ class ProjectsController < ApplicationController
   end
 
   private
+
+  def authenticate_user
+    if !user_signed_in?
+      redirect_to new_user_registration_path
+    end
+  end
 
   def project_params
     params.require(:project).permit(:name, :description, :status, :organizer, :link)
