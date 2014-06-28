@@ -5,7 +5,6 @@ Devise.setup do |config|
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   config.secret_key = '05653107919bcf7a99603a94e859fd435b64fb27905a556467a6f5b6333e733e24f85f6b975f7f3c74c099026b08666009554b03ff42077b70991a2a09e34ee4'
-
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
@@ -18,6 +17,7 @@ Devise.setup do |config|
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
+
   # available as additional gems.
   require 'devise/orm/active_record'
 
@@ -222,12 +222,18 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :delete
+  config.sign_out_via = :get
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
+
+  config.omniauth :google_oauth2,
+                  GOOGLE_CLIENT_ID,
+                  GOOGLE_CLIENT_SECRET,
+                  :access_type => 'offline',
+                  approval_prompt: ""
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
