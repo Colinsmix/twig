@@ -1,1 +1,9 @@
-<%= render 'project_form' %>
+<%= simple_form_for @project do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :status %>
+  <%= f.input :organizer %>
+  <%= f.input :link %>
+
+  <%= f.button :submit %>
+<% end %>
