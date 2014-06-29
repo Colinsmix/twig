@@ -14,9 +14,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-<<<<<<< HEAD
-=======
 
 #Ignore env
 /.env
->>>>>>> a043f48bb69bb3aa2580a2f394a1e88b304a37d6
+
+/config/environemtn/development.rb
