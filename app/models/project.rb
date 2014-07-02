@@ -6,6 +6,23 @@ class Project < ActiveRecord::Base
   validates_presence_of :organizer
   validates_presence_of :status
 
+  def status_formatted
+    case status
+    when 'pending_approval'
+      "Pending Approval"
+    when 'approved'
+      "Approved"
+    when 'looking_for_contributors'
+      "Looking For Contributors"
+    when 'in_progress'
+      "In Progress"
+    when 'completed'
+      "Completed"
+    when 'cancelled'
+      "Cancelled"
+    end
+  end
+
   # AASM
   aasm :column => 'status' do
     state :pending_approval, :initial => true
