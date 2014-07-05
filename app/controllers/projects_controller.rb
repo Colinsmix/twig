@@ -5,6 +5,10 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
+  def show
+    @project = Project.find(params[:id])
+  end
+
   def new
     @project = Project.new
   end
@@ -21,11 +25,11 @@ class ProjectsController < ApplicationController
 
   def authenticate_user
     if !user_signed_in?
-      redirect_to new_user_registration_path
+      redirect_to root_path
     end
   end
 
   def project_params
-    params.require(:project).permit(:name, :description, :status, :organizer, :link)
+    params.require(:project).permit(:name, :description, :organizer, :link, :short_description)
   end
 end
