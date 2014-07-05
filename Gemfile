@@ -15,6 +15,7 @@ gem 'simple_form'
 gem 'devise', '~>3.2.2'
 gem 'compass-rails'
 gem 'foundation-rails'
+gem 'aasm'
 
 group :development do
   gem 'spring'
