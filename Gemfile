@@ -29,8 +29,9 @@ group :test, :development do
   gem 'capybara'
   gem 'valid_attribute'
   gem 'factory_girl_rails'
-  gem 'shoulda-matchers'
+  gem 'shoulda'
   gem 'launchy'
+  gem 'mocha'
 end
 
 # Use ActiveModel has_secure_password
