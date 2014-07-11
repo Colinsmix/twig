@@ -15,6 +15,8 @@ gem 'simple_form'
 gem 'devise', '~>3.2.2'
 gem 'compass-rails'
 gem 'foundation-rails'
+gem "omniauth-google-oauth2"
+gem 'omniauth'
 gem 'aasm'
 
 group :development do

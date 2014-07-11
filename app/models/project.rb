@@ -3,8 +3,8 @@ class Project < ActiveRecord::Base
 
   validates_presence_of :name
   validates_presence_of :description
+  validates_presence_of :short_description
   validates_presence_of :organizer
-  validates_presence_of :status
 
   def status_formatted
     case status
