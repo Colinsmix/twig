@@ -6,6 +6,9 @@ class Project < ActiveRecord::Base
   validates_presence_of :short_description
   validates_presence_of :organizer
 
+  has_many :comments,
+  inverse_of: :project
+
   def status_formatted
     case status
     when 'pending_approval'
