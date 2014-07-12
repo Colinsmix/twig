@@ -7,5 +7,5 @@
 
 <% @project.comments.each do |c| %>
   <!-- TODO put name instead of created time -->
-  <p><b><%= format_time(c) %></b>: <%= c.comment %></p>
+  <p><b><%= c.created_at.strftime("%d %b. %Y") %></b>: <%= c.comment %></p>
 <% end %>
