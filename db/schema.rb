@@ -35,6 +35,12 @@ ActiveRecord::Schema.define(version: 20140711002720) do
     t.string   "short_description", default: "short description", null: false
   end
 
+  create_table "roles", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false

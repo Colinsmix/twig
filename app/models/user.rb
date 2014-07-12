@@ -3,6 +3,10 @@ class User < ActiveRecord::Base
        :recoverable, :rememberable, :trackable, :validatable,
        :omniauthable
 
+  has_many :assignments
+  has_many :roles,
+    through: :assignments
+
   has_many :votes,
     inverse_of: :user
 
