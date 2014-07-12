@@ -27,4 +27,23 @@ class ProjectsControllerTest < ActionController::TestCase
 
     assert_redirected_to root_path
   end
+
+  test 'edit page' do
+    project = Project.new( name: 'twig', description: 'what', organizer: 'john', short_description: 'ha')
+    project.save
+    get :edit, id: project.id
+    assert_response :success
+  end
+
+  test 'update page' do
+    project = Project.new( name: 'twig', description: 'what', organizer: 'john', short_description: 'ha')
+    project.save
+    project.name = 'branch'
+    @attr = { name: "branch" }
+
+    patch :update, id: project.id, project: @attr
+
+    assert_response 302
+    assert_redirected_to root_path
+  end
 end

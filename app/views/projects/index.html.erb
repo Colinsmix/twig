@@ -19,7 +19,7 @@
         <% @projects.each do |project| %>
           <tr>
             <td><%= link_to project.name, project_path(project) %></td>
-            <td><%= project.created_at.strftime("%m/%d/%y") %></td>
+            <td><%= format_time(project) %></td>
             <td><%= project.short_description %></td>
             <td><%= project.status_formatted %></td>
             <td><%= project.organizer %></td>

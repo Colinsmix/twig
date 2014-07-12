@@ -1,0 +1,11 @@
+<%= form_for([@project, @comment]) do |f| %>
+  <%= f.label :comment %>
+  <%= f.text_field :comment %>
+
+  <%= f.submit 'submit comments' %>
+<% end %>
+
+<% @project.comments.each do |c| %>
+  <!-- TODO put name instead of created time -->
+  <p><b><%= format_time(c) %></b>: <%= c.comment %></p>
+<% end %>
