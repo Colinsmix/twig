@@ -18,6 +18,7 @@ gem 'foundation-rails'
 gem "omniauth-google-oauth2"
 gem 'omniauth'
 gem 'aasm'
+gem 'declarative_authorization'
 
 group :development do
   gem 'spring'
