@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user, only: [:new]
+  include ApplicationHelper
 
   def index
     @projects = Project.all
@@ -16,6 +17,19 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+
+    if @project.save
+      redirect_to root_path
+    end
+  end
+
+  def edit
+    @project = Project.find(params[:id])
+  end
+
+  def update
+    @project = Project.find(params[:id])
+    @project.update_attributes(project_params)
 
     if @project.save
       redirect_to root_path
