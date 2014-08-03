@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :projects
+  resources :projects do
+    put 'status'
+  end
 
   resources :projects do
     resources :comments, only: [:create]

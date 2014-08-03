@@ -16,12 +16,32 @@
         </tr>
       </thead>
       <tbody>
-        <% @projects.each do |project| %>
+        <% @projects.each_with_index do |project, i| %>
           <tr>
             <td><%= link_to project.name, project_path(project) %></td>
             <td><%= format_time(project) %></td>
             <td><%= project.short_description %></td>
-            <td><%= project.status_formatted %></td>
+            <td><a href="#" data-dropdown=<%= "drop#{i}" %>><%= project.status_formatted %></a></td>
+              <ul id=<%= "drop#{i}" %> class="f-dropdown" data-dropdown-content>
+                <li>
+                  <%= link_to "Pending Approval", project_status_path(project, :info => {:status => 'pending_approval', :method => :put }) %>
+                </li>
+                <li>
+                  <%= link_to "Approve", project_status_path(project, :info => {:status => 'approve'} ), :method => :put %>
+                </li>
+                <li>
+                  <%= link_to "Looking For Contributors", project_status_path(project, :info => { :status => 'find_contributors'} ), :method => :put %>
+                </li>
+                <li>
+                  <%= link_to "In Progress", project_status_path(project, :info => { :status => 'start_progress'}), :method => :put %>
+                </li>
+                <li>
+                  <%= link_to "Completed", project_status_path(project, :info => { :status => 'complete'}), :method => :put %>
+                </li>
+                <li>
+                  <%= link_to "Cancelled", project_status_path(project, :info => {:status => 'cancel'}), :method => :put %>
+                </li>
+              </ul>
             <td><%= project.organizer %></td>
             <td><%= project.link %></td>
           </tr>

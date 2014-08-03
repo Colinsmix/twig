@@ -36,6 +36,14 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def status
+    @project = Project.find(params[:project_id])
+    @project.send(params[:info][:status])
+    if @project.save
+      redirect_to root_path
+    end
+  end
+
   private
 
   def authenticate_user

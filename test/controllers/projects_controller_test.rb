@@ -46,4 +46,14 @@ class ProjectsControllerTest < ActionController::TestCase
     assert_response 302
     assert_redirected_to root_path
   end
+
+  test 'status change' do
+    project = Project.new( name: 'twig', description: 'what', organizer: 'john', short_description: 'ha')
+    project.save
+
+    #TODO should make a request to see this change
+    project.send('approve')
+
+    assert_equal('approved', project.status)
+  end
 end
