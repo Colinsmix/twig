@@ -39,4 +39,28 @@ html, body {
 .footer, .push {
   height: 90px;
 }
->>>>>>> a043f48bb69bb3aa2580a2f394a1e88b304a37d6
+
+.home {
+  background-color: #f7b7c9;
+  border: 20px solid #f7b7c9;
+}
+
+.contain-to-grid {
+  background: #72efcc !important;
+}
+
+.top-bar {
+  background: #72efcc !important;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  background: #72efcc !important;
+}
+
+.top-bar .name h1 a {
+  color: #000000 !important;
+
+}
+.top-bar-section ul li > a {
+  color: #000000 !important;
+}

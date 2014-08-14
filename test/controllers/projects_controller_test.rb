@@ -2,12 +2,17 @@ require 'test_helper'
 class ProjectsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
-  test 'should get index' do
-    get :index
-    assert_response :success
-  end
+  context "logged in" do
+    setup do
+      user = User.create!(:email => 'us...@test.com', :password => 'user123123', :password_confirmation => 'user123123')
+      sign_in user
+    end
 
-  context 'viewing a single project' do
+    should 'should get index' do
+      get :index
+      assert_response :success
+    end
+
     should 'show' do
       project = Project.new( name: 'twig', description: 'what', organizer: 'john', short_description: 'ha').save
       get :show, id: Project.first.id

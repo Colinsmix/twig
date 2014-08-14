@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_filter :authenticate_user, only: [:new]
+  before_filter :authenticate_user, only: [:index, :show, :new]
   include ApplicationHelper
 
   def index
