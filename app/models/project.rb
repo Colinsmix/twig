@@ -6,6 +6,8 @@ class Project < ActiveRecord::Base
   validates_presence_of :short_description
   validates_presence_of :organizer
 
+  belongs_to :organizer, :class_name => "User"
+
   has_many :comments,
   inverse_of: :project
 
