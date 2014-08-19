@@ -14,7 +14,7 @@ class ProjectsControllerTest < ActionController::TestCase
     end
 
     should '#show' do
-      project = Project.new(name: 'twig', description: 'what', organizer_id: @user.id, short_description: 'ha')
+      project = Project.new(name: 'twig', description: 'what', organizer_id: @user.id, short_description: 'ha', :desc_implementation => 'imple', :desc_benefits => 'benefit', :desc_significance => 'significance', :desc_resources => "resource")
       project.save
       get :show, id: project.id
       assert_response :success
@@ -22,21 +22,21 @@ class ProjectsControllerTest < ActionController::TestCase
 
     should "#create" do
       assert_difference('Project.count') do
-        post :create, project: { name: 'twig', description: 'what', organizer_id: @user.id, short_description: 'ha' }
+        post :create, project: {name: 'twig', description: 'what', organizer_id: @user.id, short_description: 'ha', :desc_implementation => 'imple', :desc_benefits => 'benefit', :desc_significance => 'significance', :desc_resources => "resource"}
       end
 
       assert_redirected_to root_path
     end
 
     should '#edit' do
-      project = Project.new(name: 'twig', description: 'what', organizer_id: @user.id, short_description: 'ha')
+      project = Project.new(name: 'twig', description: 'what', organizer_id: @user.id, short_description: 'ha', :desc_implementation => 'imple', :desc_benefits => 'benefit', :desc_significance => 'significance', :desc_resources => "resource")
       project.save
       get :edit, id: project.id
       assert_response :success
     end
 
     should 'update page' do
-      project = Project.new(name: 'twig', description: 'what', organizer_id: @user.id, short_description: 'ha')
+      project = Project.new(name: 'twig', description: 'what', organizer_id: @user.id, short_description: 'ha', :desc_implementation => 'imple', :desc_benefits => 'benefit', :desc_significance => 'significance', :desc_resources => "resource")
       project.save
       project.name = 'branch'
       @attr = { name: "branch" }
@@ -48,7 +48,7 @@ class ProjectsControllerTest < ActionController::TestCase
     end
 
     should 'status change' do
-      project = Project.new( name: 'twig', description: 'what', organizer_id: @user.id, short_description: 'ha')
+      project = Project.new(name: 'twig', description: 'what', organizer_id: @user.id, short_description: 'ha', :desc_implementation => 'imple', :desc_benefits => 'benefit', :desc_significance => 'significance', :desc_resources => "resource")
       project.save
 
       #TODO should make a request to see this change

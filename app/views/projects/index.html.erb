@@ -42,7 +42,11 @@
                   <%= link_to "Cancelled", project_status_path(project, :info => {:status => 'cancel'}), :method => :put %>
                 </li>
               </ul>
-            <td><%= project.organizer %></td>
+            <% if !project.organizer.first_name.nil? %>
+              <td><%= "#{project.organizer.first_name} #{project.organizer.last_name}" %></td>
+            <% else %>
+              <td><%= project.organizer.email %></td>
+            <% end %>
             <td><%= project.link %></td>
           </tr>
         <% end %>
