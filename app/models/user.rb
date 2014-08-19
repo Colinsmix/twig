@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
     dependent: :nullify,
     inverse_of: :user
 
+  validates_presence_of :first_name, :last_name
+
   def self.new_with_session(params, session)
     # Filter out email and username from params since we will get those from the session
     user_params = params.except('email', 'username')

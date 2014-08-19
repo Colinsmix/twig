@@ -5,7 +5,6 @@
   <%= f.submit 'submit comments' %>
 <% end %>
 
-<% @project.comments.each do |c| %>
-  <!-- TODO put name instead of created time -->
-  <p><b><%= c.created_at.strftime("%d %b. %Y") %></b>: <%= c.comment %></p>
+<% @project.comments.reverse.each do |c| %>
+  <p><b><%= "#{c.created_at.strftime("%b %d, %Y")} - #{current_user.first_name}" %></b>: <%= c.comment %></p>
 <% end %>
