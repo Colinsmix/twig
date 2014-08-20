@@ -4,7 +4,7 @@ class ProjectsControllerTest < ActionController::TestCase
 
   context "logged in" do
     setup do
-      @user = User.create!(:email => 'us@test.com', :password => 'user123123', :password_confirmation => 'user123123')
+      @user = User.create!(:email => 'us@test.com', :password => 'user123123', :password_confirmation => 'user123123', :first_name => "Colin", :last_name => "Shields")
       sign_in @user
     end
 
