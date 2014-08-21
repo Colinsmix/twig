@@ -225,8 +225,8 @@ Devise.setup do |config|
   config.sign_out_via = :delete
 
   config.omniauth :google_oauth2,
-                  GOOGLE_CLIENT_ID,
-                  GOOGLE_CLIENT_SECRET,
+                  ENV["GOOGLE_CLIENT_ID"],
+                  ENV["GOOGLE_CLIENT_SECRET"],
                   :access_type => 'offline',
                   approval_prompt: ""
   # ==> OmniAuth
