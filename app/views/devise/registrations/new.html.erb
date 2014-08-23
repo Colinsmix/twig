@@ -8,8 +8,8 @@
   <div class="form-inputs">
     <%= f.input :email, required: true, autofocus: true %>
     <% if !session["devise.google_data"].nil? %>
-      <%= f.input :first_name, input_html: { value: session["devise.google_data"]["first_name"]}, required: true %>
-      <%= f.input :last_name, input_html: { value: session["devise.google_data"]["last_name"]}, required: true %>
+      <%= f.input :first_name, input_html: { value: session["devise.google_data"]["first_name"]} %>
+      <%= f.input :last_name, input_html: { value: session["devise.google_data"]["last_name"]} %>
     <% else %>
       <%= f.input :first_name, required: true %>
       <%= f.input :last_name, required: true %>
