@@ -1,6 +1,13 @@
 <h1>Projects In Progress</h1>
 
 <a href='/projects/new'>New</a>
+<br>
+<%= link_to "All", projects_path(params.merge!(:status_filter => "all")) %>
+<%= link_to "Pending Approval", projects_path(params.merge!(:status_filter => "pending_approval")) %>
+<%= link_to "Approved", projects_path(params.merge!(:status_filter => "approved")) %>
+<%= link_to "Looking For Contributors", projects_path(params.merge!(:status_filter => "looking_for_contributors")) %>
+<%= link_to "In Progress", projects_path(params.merge!(:status_filter => "in_progress")) %>
+<%= link_to "Completed", projects_path(params.merge!(:status_filter => "completed")) %>
 
 <div class='row'>
   <div class="small-12 columns">
