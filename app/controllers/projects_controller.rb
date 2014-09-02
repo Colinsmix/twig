@@ -3,7 +3,11 @@ class ProjectsController < ApplicationController
   include ApplicationHelper
 
   def index
-    @projects = Project.all
+    if params[:status_filter].nil? || params[:status_filter] == 'all'
+      @projects = Project.all
+    else
+      @projects = Project.where("status = '#{params[:status_filter]}'")
+    end
   end
 
   def show
