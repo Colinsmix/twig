@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user, only: [:index, :show, :new]
+  filter_resource_access
   include ApplicationHelper
 
   def index

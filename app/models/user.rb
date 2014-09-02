@@ -53,4 +53,15 @@ class User < ActiveRecord::Base
     # Return the result
     return result
   end
+
+  def role_symbols
+    roles.map do |role|
+      role.name.underscore.to_sym
+    end
+  end
+
+  def has_role?(role)
+    @roles_list ||= self.roles.collect(&:name)
+    @roles_list.include?(role.to_s)
+  end
 end
