@@ -3,4 +3,9 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter { |c| Authorization.current_user = c.current_user }
+
+  def permission_denied
+    flash[:error] = "Sorry, you not allowed to access that page."
+    redirect_to(:back)
+  end
 end
