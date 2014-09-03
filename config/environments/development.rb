@@ -34,6 +34,6 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  GOOGLE_CLIENT_ID='188690298447-sk5pp48qsi0n1fib3mnalcua0ejmtsd2.apps.googleusercontent.com'
-  GOOGLE_CLIENT_SECRET='MQD4-EIcwiU3roVJEuQyxqSZ'
+  GOOGLE_CLIENT_ID='188690298447-c8ih0hl6pth2nudkjn9db6eogjibt785.apps.googleusercontent.com'
+  GOOGLE_CLIENT_SECRET='_H88hIRVcns0JqLmjwV0AyaR'
 end
