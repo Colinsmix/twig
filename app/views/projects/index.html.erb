@@ -50,7 +50,7 @@
                 </li>
               </ul>
             <% if !project.organizer.first_name.nil? %>
-              <td><%= "#{project.organizer.first_name} #{project.organizer.last_name}" %></td>
+              <td><%= link_to "#{project.organizer.first_name} #{project.organizer.last_name}", "https://directory.livingsocial.com/contacts/#{project.organizer.first_name}-#{project.organizer.last_name}" %></td>
             <% else %>
               <td><%= project.organizer.email %></td>
             <% end %>
