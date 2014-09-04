@@ -29,26 +29,28 @@
             <td><%= format_time(project) %></td>
             <td><%= project.short_description %></td>
             <td><a href="#" data-dropdown=<%= "drop#{i}" %>><%= project.status_formatted %></a></td>
-              <ul id=<%= "drop#{i}" %> class="f-dropdown" data-dropdown-content>
-                <li>
-                  <%= link_to "Pending Approval", project_status_path(project, :info => {:status => 'pending_approval', :method => :put }) %>
-                </li>
-                <li>
-                  <%= link_to "Approve", project_status_path(project, :info => {:status => 'approve'} ), :method => :put %>
-                </li>
-                <li>
-                  <%= link_to "Looking For Contributors", project_status_path(project, :info => { :status => 'find_contributors'} ), :method => :put %>
-                </li>
-                <li>
-                  <%= link_to "In Progress", project_status_path(project, :info => { :status => 'start_progress'}), :method => :put %>
-                </li>
-                <li>
-                  <%= link_to "Completed", project_status_path(project, :info => { :status => 'complete'}), :method => :put %>
-                </li>
-                <li>
-                  <%= link_to "Cancelled", project_status_path(project, :info => {:status => 'cancel'}), :method => :put %>
-                </li>
-              </ul>
+              <% if current_user.has_role?('Admin') %>
+                <ul id=<%= "drop#{i}" %> class="f-dropdown" data-dropdown-content>
+                  <li>
+                    <%= link_to "Pending Approval", project_status_path(project, :info => {:status => 'pending_approval', :method => :put }) %>
+                  </li>
+                  <li>
+                    <%= link_to "Approve", project_status_path(project, :info => {:status => 'approve'} ), :method => :put %>
+                  </li>
+                  <li>
+                    <%= link_to "Looking For Contributors", project_status_path(project, :info => { :status => 'find_contributors'} ), :method => :put %>
+                  </li>
+                  <li>
+                    <%= link_to "In Progress", project_status_path(project, :info => { :status => 'start_progress'}), :method => :put %>
+                  </li>
+                  <li>
+                    <%= link_to "Completed", project_status_path(project, :info => { :status => 'complete'}), :method => :put %>
+                  </li>
+                  <li>
+                    <%= link_to "Cancelled", project_status_path(project, :info => {:status => 'cancel'}), :method => :put %>
+                  </li>
+                </ul>
+              <% end %>
             <% if !project.organizer.first_name.nil? %>
               <td><%= link_to "#{project.organizer.first_name} #{project.organizer.last_name}", "https://directory.livingsocial.com/contacts/#{project.organizer.first_name}-#{project.organizer.last_name}" %></td>
             <% else %>
