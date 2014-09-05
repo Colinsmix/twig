@@ -1,9 +1,14 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user, only: [:index, :show, :new]
+  filter_resource_access
   include ApplicationHelper
 
   def index
-    @projects = Project.all
+    if params[:status_filter].nil? || params[:status_filter] == 'all'
+      @projects = Project.all
+    else
+      @projects = Project.where("status = '#{params[:status_filter]}'")
+    end
   end
 
   def show
@@ -17,6 +22,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    @project.organizer_id = current_user.id
 
     if @project.save
       redirect_to root_path
@@ -53,6 +59,8 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :description, :organizer, :link, :short_description)
+    params.require(:project).permit(:name, :description, :organizer,
+    :link, :short_description, :desc_benefits, :desc_implementation,
+    :desc_significance, :desc_resources)
   end
 end

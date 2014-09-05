@@ -1,8 +1,9 @@
 <html lang="en">
 <head>
-    <% provide(:title, 'NewBranches') %>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Twig | <%= yield(:title) %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -14,7 +15,7 @@
 
       <%= render 'partials/nav' %>
       <div class="row">
-        <div class="small-8 small-offset-2 small-centered columns">
+        <div class="small-9 small-offset-1 small-centered columns">
 
           <% flash.each do |name, msg| %>
             <%= msg %>
@@ -29,7 +30,7 @@
     <div class='push'></div>
 
     <div class='row'>
-      <div class='small-8 small-offset-2 columns'>
+      <div class='small-9 small-offset-1 columns'>
         <div class='footer'>
           <p>Created By <a href='https://github.com/jmoon90'>John Moon </a>& <a href='https://github.com/Colinsmix'>Colin Shields</a></p>
         </div>

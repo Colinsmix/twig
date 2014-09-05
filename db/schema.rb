@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140712185841) do
+ActiveRecord::Schema.define(version: 20140823142828) do
+
+  create_table "assignments", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", force: true do |t|
     t.integer  "user_id"
@@ -25,14 +32,18 @@ ActiveRecord::Schema.define(version: 20140712185841) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "projects", force: true do |t|
-    t.string   "name",                                            null: false
-    t.text     "description",                                     null: false
-    t.string   "status",                                          null: false
-    t.string   "organizer",                                       null: false
+    t.string   "name",                null: false
+    t.text     "description",         null: false
+    t.string   "status",              null: false
     t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "short_description", default: "short description", null: false
+    t.integer  "organizer_id"
+    t.text     "desc_implementation"
+    t.text     "desc_benefits"
+    t.text     "desc_significance"
+    t.text     "desc_resources"
+    t.string   "short_description"
   end
 
   create_table "roles", force: true do |t|
@@ -54,7 +65,8 @@ ActiveRecord::Schema.define(version: 20140712185841) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "full_name"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

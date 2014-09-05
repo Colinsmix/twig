@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
     dependent: :nullify,
     inverse_of: :user
 
+  validates_presence_of :first_name, :last_name
+
   def self.new_with_session(params, session)
     # Filter out email and username from params since we will get those from the session
     user_params = params.except('email', 'username')
@@ -50,5 +52,16 @@ class User < ActiveRecord::Base
 
     # Return the result
     return result
+  end
+
+  def role_symbols
+    roles.map do |role|
+      role.name.underscore.to_sym
+    end
+  end
+
+  def has_role?(role)
+    @roles_list ||= self.roles.collect(&:name)
+    @roles_list.include?(role.to_s)
   end
 end

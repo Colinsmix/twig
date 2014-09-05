@@ -4,7 +4,13 @@ class Project < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :description
   validates_presence_of :short_description
-  validates_presence_of :organizer
+  validates_presence_of :organizer_id
+  validates_presence_of :desc_implementation
+  validates_presence_of :desc_benefits
+  validates_presence_of :desc_significance
+  validates_presence_of :desc_resources
+
+  belongs_to :organizer, :class_name => "User"
 
   has_many :comments,
   inverse_of: :project

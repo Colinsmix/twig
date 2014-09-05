@@ -1,8 +1,11 @@
 <%= simple_form_for @project do |f| %>
-  <%= f.input :name %>
+  <%= f.input :name, label: "Project Name" %>
   <%= f.input :short_description %>
   <%= f.input :description %>
-  <%= f.input :organizer %>
+  <%= f.input :desc_implementation, label: "How would you implement this" %>
+  <%= f.input :desc_benefits, label: "What are the benefits" %>
+  <%= f.input :desc_significance, label: "Why is this significant" %>
+  <%= f.input :desc_resources, label: "What resources do you need" %>
   <%= f.input :link %>
 
   <%= f.button :submit %>

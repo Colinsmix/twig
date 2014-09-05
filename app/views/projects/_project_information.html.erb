@@ -1,5 +1,8 @@
-    <p><b>Description</b>: <%= @project.description %></p>
- <!-- TODO check if project user is current_user and display Edit -->
+    <p><b>Project Description</b>: <%= @project.description %></p>
+    <p><b>How would you implement this?</b>: <%= @project.desc_implementation %></p>
+    <p><b>What are the benefits?</b>: <%= @project.desc_benefits %></p>
+    <p><b>Why is this significant?</b>: <%= @project.desc_significance %></p>
+    <p><b>What resources do you need to imeplement this?</b>: <%= @project.desc_resources %></p>
     <p><b>Current Status</b>: <%= @project.status %></p>
-    <p><b>The organizer and maintainers</b>: <%= @project.organizer %></p>
+    <p><b>The organizer and maintainers</b>: <%= @project.organizer.email %></p>
     <p><b>Source code / link</b>: <%= @project.link %></p>
